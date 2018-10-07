@@ -32,6 +32,7 @@ foreach ($participants as $name => $participant) {
                     echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>";
                 }
                 ?>
+                <span class="text-muted"><?php echo htmlspecialchars($map['gameVersion']); ?> –</span>
                 <a href="<?php echo "data/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
                    class="card-link">Download</a>
             </div>
