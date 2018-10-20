@@ -10,7 +10,11 @@ $error = '';
 $json_string = file_get_contents("data/participants.json");
 $participants = json_decode($json_string, true);
 if ($now > $end) {
-    $template = 'includes/list.php';
+    if($published) {
+        $template = 'includes/list.php';
+    } else {
+        $template = 'includes/judging.php';
+    }
 } elseif ($now > $start && $now < $end) {
     $template = 'includes/upload.php';
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -96,18 +100,19 @@ function upload($participants)
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Map Contest</title>
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/dark-bootstrap.min.css">
     <style>
         html,
         body {
             height: 100%;
-            background: url("assets/bg<?php echo rand(1,4); ?>.png") no-repeat;
+            background: url("assets/bg<?php echo rand(1,4); ?>.png") no-repeat fixed;
             background-size: cover;
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(48, 48, 48, 0.8);
             margin-top: 1rem;
             margin-bottom: 1rem;
         }

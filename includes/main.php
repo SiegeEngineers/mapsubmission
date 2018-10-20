@@ -3,7 +3,7 @@
 
     <h2>
         <small class="text-muted">Stage</small>
-        Competitive map
+        <?php echo $stage;?>
     </h2>
 
     <h5>
