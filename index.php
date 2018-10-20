@@ -101,7 +101,7 @@ function upload($participants)
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Map Contest</title>
+    <title>Random Map Contest</title>
     <link rel="stylesheet" type="text/css" href="assets/dark-bootstrap.min.css">
     <style>
         html,

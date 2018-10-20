@@ -1,11 +1,13 @@
-<h1 class="text-center">Map Contest</h1>
+<div class="text-center">
+    <h1>Random Map Contest</h1>
 
-<h2>
-    <small class="text-muted">Stage</small>
-    <?php echo $stage; ?>
-</h2>
+    <h2>
+        <small class="text-muted">Stage</small>
+        <?php echo $stage; ?>
+    </h2>
 
-<h3 class="text-center">Submission</h3>
+    <h3 class="text-center">Submission</h3>
+</div>
 
 <div class="alert alert-success">Your map has been submitted.</div>
 
