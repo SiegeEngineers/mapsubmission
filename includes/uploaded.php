@@ -9,7 +9,10 @@
     <h3 class="text-center">Submission</h3>
 </div>
 
-<div class="alert alert-success">Your map has been submitted.</div>
+<div class="alert alert-success">
+    Your map has been submitted.
+    Submission code: <strong><?php echo htmlspecialchars($submissionCode); ?></strong>
+</div>
 
 <div class="form-group">
     <label for="inputAuthorName">Your name</label>

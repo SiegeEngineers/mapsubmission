@@ -10,7 +10,7 @@ $error = '';
 $json_string = file_get_contents("data/participants.json");
 $participants = json_decode($json_string, true);
 if ($now > $end) {
-    if($published) {
+    if ($published) {
         $template = 'includes/list.php';
     } else {
         $template = 'includes/judging.php';
@@ -27,6 +27,8 @@ if ($now > $end) {
             $instructions = $_POST['instructions'];
             $gameVersion = $_POST['gameVersion'];
             $filename = $_FILES['rms']['name'];
+            $directory = $participants[$authorName]['maps'][0]['hash'];
+            $submissionCode = substr(hash('sha256', $directory), 0, 6);
         }
     }
 }
