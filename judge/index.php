@@ -28,7 +28,6 @@ $categories = [
 
 
 if (!$published && $now > $end && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    print_r($_POST);
     $error = save($judging, $categories, $username);
 }
 
@@ -172,7 +171,7 @@ function rating($hashvalue, $categories, $judging, $username)
 
                         <p class="mt-5">Judging has finished. Thank you!</p>
 
-                    <?php } else { ?>
+                    <?php } elseif ($now > $end) { ?>
 
                     <h3 class="mt-4">Judging: <?php echo $username; ?></h3>
                 </div>
@@ -214,6 +213,8 @@ function rating($hashvalue, $categories, $judging, $username)
                         <button class="btn btn-primary btn-lg">Save</button>
                     </p>
                 </form>
+                <?php } else { ?>
+                    <p class="mt-4">Hello, <strong><?php echo $username; ?></strong>! Judging has not started yet.</p>
                 <?php } ?>
             </div>
         </div>
