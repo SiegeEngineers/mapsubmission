@@ -33,7 +33,7 @@ if ($now > $end) {
     }
 }
 
-function upload($participants)
+function upload(&$participants)
 {
     if (isset($_POST['authorName']) &&
         isset($_POST['mapName']) &&
