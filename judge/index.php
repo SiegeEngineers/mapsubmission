@@ -56,7 +56,7 @@ function save($judging, $categories, $username)
     if ($success === false) {
         return "Could not save metadata";
     }
-    return '' . $count;
+    return '';
 }
 
 function toKey($string)
