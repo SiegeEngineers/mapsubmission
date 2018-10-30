@@ -32,7 +32,7 @@ if (!$published && $now > $end && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-function save($judging, $categories, $username)
+function save(&$judging, $categories, $username)
 {
     if (!isset($judging[$username])) {
         $judging[$username] = [];
