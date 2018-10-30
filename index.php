@@ -69,7 +69,7 @@ function upload(&$participants)
                 $participants[$authorName]['maps'] = [];
             }
             array_unshift($participants[$authorName]['maps'], $map);
-            $target_dir = "data/$hash/";
+            $target_dir = "maps/$hash/";
             $target_file = $target_dir . basename($_FILES["rms"]["name"]);
             $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -77,7 +77,7 @@ function upload(&$participants)
                 return "Please upload a .rms file";
             }
 
-            $success = mkdir("data/$hash");
+            $success = mkdir($target_dir);
             if ($success === false) {
                 return "Could not create folder";
             }
