@@ -80,7 +80,7 @@ function rating($hashvalue, $categories, $judging, $username)
         if (isset($judging[$username]) &&
             isset($judging[$username][$hashvalue]) &&
             isset($judging[$username][$hashvalue][$key])) {
-            $value = $judging[$username][$hashvalue][$key];
+            $value = htmlspecialchars($judging[$username][$hashvalue][$key]);
         }
         $retval .= "
         <div class='col-2'>
