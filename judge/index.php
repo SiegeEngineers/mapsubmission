@@ -210,7 +210,7 @@ function rating($hashvalue, $categories, $judging, $username)
                     } ?>
 
                     <p class="text-center">
-                        <button class="btn btn-primary btn-lg">Save</button>
+                        <button class="btn btn-primary btn-lg" id="btnSave">Save</button>
                     </p>
                 </form>
                 <?php } else { ?>

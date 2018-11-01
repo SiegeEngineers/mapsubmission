@@ -104,7 +104,7 @@ if ($error != '') {
     </div>
 
     <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-lg">Submit map!</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="btnSubmit">Submit map!</button>
     </div>
 
 </form>
