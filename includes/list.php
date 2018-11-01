@@ -87,13 +87,15 @@ foreach ($tbs as $name => $total) {
         <div class="card-body">
             <h5 class="card-title">
                 <?php
-                echo htmlspecialchars($map['mapName']);
+                $mapName = htmlspecialchars($map['mapName']);
+                $totalFormatted = number_format($total, 1);
+                echo "$mapName <small>– $totalFormatted Points</small>";
                 if ($total === $top_score) {
                     echo ' <span class="badge badge-pill badge-primary">1st Place</span>';
                 } ?>
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
-                by <?php echo htmlspecialchars($name); ?> – <?php echo number_format($total, 1); ?> Points</h6>
+                by <?php echo htmlspecialchars($name); ?></h6>
             <p class="card-text"><?php echo htmlspecialchars($map['description']); ?></p>
             <?php if ($map['instructions'] !== '') {
                 echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>\n";
