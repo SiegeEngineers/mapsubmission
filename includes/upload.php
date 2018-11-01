@@ -74,13 +74,13 @@ if ($error != '') {
 
     <div class="form-group">
         <label for="selectGameVersion">Game Version
-            <small id="gameVersionHelp" class="form-text">This map is meant to be played with the following version of
+            <small id="gameVersionHelp" class="form-text">This map is should be tested and judged with the following version of
                 the game
             </small>
         </label>
         <select class="form-control" id="selectGameVersion" name="gameVersion">
             <?php
-            foreach (['Plain AoC', 'HD', 'AoC+UP', 'WK', 'WK+UP'] as $version) {
+            foreach (['Plain AoC', 'HD', 'AoC+UP', 'WK'] as $version) {
                 $selected = '';
                 if (isset($_POST['gameVersion']) && $_POST['gameVersion'] === $version) {
                     $selected = ' selected';
