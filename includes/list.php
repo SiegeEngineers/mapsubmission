@@ -18,11 +18,11 @@ function getScores($judging, $hash)
                     $counts[$key]++;
                 }
             }
-            foreach ($scores as $key => $value) {
-                if ($counts[$key] !== 0) {
-                    $scores[$key] /= $counts[$key];
-                }
-            }
+        }
+    }
+    foreach ($scores as $key => $value) {
+        if ($counts[$key] !== 0) {
+            $scores[$key] /= $counts[$key];
         }
     }
 
