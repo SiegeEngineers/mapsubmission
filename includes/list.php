@@ -9,20 +9,28 @@ function getScores($judging, $hash)
     foreach ($judging as $judge => $judgements) {
         if (isset($judgements[$hash])) {
             foreach ($judgements[$hash] as $key => $value) {
-                if (!isset($scores[$key])) {
-                    $scores[$key] = 0;
-                    $counts[$key] = 0;
-                }
-                if ($value !== "") {
-                    $scores[$key] += intval($value);
-                    $counts[$key]++;
+                if ($key !== 'Comments') {
+                    if (!isset($scores[$key])) {
+                        $scores[$key] = 0;
+                        $counts[$key] = 0;
+                    }
+                    if ($value !== "") {
+                        $scores[$key] += intval($value);
+                        $counts[$key]++;
+                    }
                 }
             }
+            if (!isset($scores['Comments'])) {
+                $scores['Comments'] = [];
+            }
+            $scores['Comments'][$judge] = $judgements[$hash]['Comments'];
         }
     }
     foreach ($scores as $key => $value) {
-        if ($counts[$key] !== 0) {
-            $scores[$key] /= $counts[$key];
+        if ($key !== 'Comments') {
+            if ($counts[$key] !== 0) {
+                $scores[$key] /= $counts[$key];
+            }
         }
     }
 
@@ -33,7 +41,9 @@ function sumScores($scores)
 {
     $sum = 0;
     foreach ($scores as $key => $value) {
-        $sum += $value;
+        if ($key !== 'Comments') {
+            $sum += $value;
+        }
     }
     return $sum;
 }
@@ -105,7 +115,7 @@ foreach ($tbs as $name => $total) {
             <a href="<?php echo "maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
                class="card-link">Download</a>
             <hr>
-            <table class="table table-borderless table-sm mb-0">
+            <table class="table table-borderless table-sm">
                 <thead>
                 <tr>
                     <?php
@@ -127,6 +137,18 @@ foreach ($tbs as $name => $total) {
                 </tr>
                 </tbody>
             </table>
+            <dl>
+                <?php
+                foreach ($participants[$name]['scores']['Comments'] as $judge => $comment) {
+                    $judgeName = htmlspecialchars($judge);
+                    $commentText = htmlspecialchars($comment);
+                    if ($commentText !== "") {
+                        echo "<dt>$judgeName</dt>\n";
+                        echo "<dd class='font-italic'>$commentText</dd>\n";
+                    }
+                }
+                ?>
+            </dl>
         </div>
     </div>
 

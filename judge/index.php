@@ -19,7 +19,6 @@ $participants = json_decode($json_string, true);
 $judging = json_decode($json_string_2, true);
 
 
-
 if (!$published && $now > $end && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = save($judging, $categories, $username);
 }
@@ -32,7 +31,7 @@ function save(&$judging, $categories, $username)
     }
     $count = 0;
     foreach ($_POST as $key => $value) {
-        foreach ($categories as $category) {
+        foreach (array_merge($categories, [['name' => 'Comments']]) as $category) {
             $needle = toKey($category['name']);
             if (strpos($key, $needle) === 0) {
                 $count++;
@@ -90,7 +89,22 @@ function rating($hashvalue, $categories, $judging, $username)
         </div>";
     }
 
-    $retval .= "</div></div>";
+    $comments = '';
+    if (isset($judging[$username]) &&
+        isset($judging[$username][$hashvalue]) &&
+        isset($judging[$username][$hashvalue]['Comments'])) {
+        $comments = htmlspecialchars($judging[$username][$hashvalue]['Comments']);
+    }
+    $retval .= "</div>
+        <div class='row'>
+            <div class='col-12'>
+                 <div class='form-group'>
+                    <label for='textareaComments$hashvalue'>Comments</label>
+                    <textarea class='form-control' id='textareaComments$hashvalue' name='Comments$hashvalue' rows='2'>$comments</textarea>
+                 </div>
+            </div>
+        </div>
+    </div>";
 
     return $retval;
 }
