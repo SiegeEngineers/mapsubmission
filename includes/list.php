@@ -93,7 +93,7 @@ foreach ($tbs as $name => $total) {
                 } ?>
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
-                by <?php echo htmlspecialchars($name); ?> – <?php echo $total; ?> Points</h6>
+                by <?php echo htmlspecialchars($name); ?> – <?php echo number_format($total, 1); ?> Points</h6>
             <p class="card-text"><?php echo htmlspecialchars($map['description']); ?></p>
             <?php if ($map['instructions'] !== '') {
                 echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>\n";
