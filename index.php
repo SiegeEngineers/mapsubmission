@@ -125,6 +125,11 @@ function upload(&$participants)
             flex-direction: column;
             justify-content: center;
         }
+
+        h5 > .badge {
+            vertical-align: middle;
+            margin-top: -0.5em;
+        }
     </style>
 </head>
 <body>
