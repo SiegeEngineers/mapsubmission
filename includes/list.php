@@ -71,8 +71,8 @@ foreach ($participants as $name => $participant) {
         $map = $participant['maps'][0];
         $scores = getScores($judging, $map['hash']);
         $total = sumScores($scores);
-        $participant['scores'] = $scores;
-        $participant['total'] = $total;
+        $participants[$name]['scores'] = $scores;
+        $participants[$name]['total'] = $total;
         $tbs[$name] = $total;
         $top_score = max($top_score, $total);
     }
@@ -102,6 +102,29 @@ foreach ($tbs as $name => $total) {
             <span class="text-muted"><?php echo htmlspecialchars($map['gameVersion']); ?> –</span>
             <a href="<?php echo "maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
                class="card-link">Download</a>
+            <hr>
+            <table class="table table-borderless table-sm mb-0">
+                <thead>
+                <tr>
+                    <?php
+                    foreach ($categories as $category) {
+                        echo "<th class='text-center' scope='col'>{$category['name']}</th>\n";
+                    } ?>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <?php
+                    foreach ($categories as $category) {
+                        $key = toKey($category['name']);
+                        $value = number_format($participants[$name]['scores'][$key], 1);
+                        $max = number_format($category['max'], 1);
+                        echo "<td class='text-center'>$value / $max</td>\n";
+                    }
+                    ?>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

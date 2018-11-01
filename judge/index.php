@@ -1,6 +1,7 @@
 <?php
 
 include('../includes/config.php');
+include('../includes/helpers.php');
 $now = new DateTime('now');
 $start->setTimezone(new DateTimeZone("UTC"));
 $end->setTimezone(new DateTimeZone("UTC"));
@@ -17,14 +18,6 @@ $json_string_2 = file_get_contents("../data/judging.json");
 $participants = json_decode($json_string, true);
 $judging = json_decode($json_string_2, true);
 
-
-$categories = [
-    ['name' => 'Originality', 'min' => 0, 'max' => 4],
-    ['name' => 'Professionality', 'min' => 0, 'max' => 2],
-    ['name' => 'Balance & Playability', 'min' => 0, 'max' => 4],
-    ['name' => 'Theme', 'min' => 0, 'max' => 4],
-    ['name' => 'Visual Appeal', 'min' => 0, 'max' => 4]
-];
 
 
 if (!$published && $now > $end && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -57,11 +50,6 @@ function save(&$judging, $categories, $username)
         return "Could not save metadata";
     }
     return '';
-}
-
-function toKey($string)
-{
-    return preg_replace("/[^A-Za-z]/", "", $string);
 }
 
 function rating($hashvalue, $categories, $judging, $username)

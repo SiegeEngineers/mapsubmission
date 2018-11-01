@@ -1,6 +1,7 @@
 <?php
 
 include('includes/config.php');
+include('includes/helpers.php');
 $now = new DateTime('now');
 $start->setTimezone(new DateTimeZone("UTC"));
 $end->setTimezone(new DateTimeZone("UTC"));
