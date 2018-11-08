@@ -141,7 +141,7 @@ foreach ($tbs as $name => $total) {
                 <?php
                 foreach ($participants[$name]['scores']['Comments'] as $judge => $comment) {
                     $judgeName = htmlspecialchars($judge);
-                    $commentText = htmlspecialchars($comment);
+                    $commentText = str_replace("\n","<br>\n",htmlspecialchars($comment));
                     if ($commentText !== "") {
                         echo "<dt>$judgeName</dt>\n";
                         echo "<dd class='font-italic'>$commentText</dd>\n";
