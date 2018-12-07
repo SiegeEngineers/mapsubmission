@@ -31,3 +31,6 @@ A contest takes part in four stages:
    with the average rating in each category, the sum of those averages as total score,
    as well as all judges' comments. The submissions are ordered by total score, and 
    the submission(s) with the highest score have a "1st place" marker.
+
+## Authors
+[HSZemi](https://github.com/hszemi) - Original Author
