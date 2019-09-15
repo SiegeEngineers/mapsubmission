@@ -111,7 +111,6 @@ foreach ($tbs as $name => $total) {
                 echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>\n";
             }
             ?>
-            <span class="text-muted"><?php echo htmlspecialchars($map['gameVersion']); ?> –</span>
             <a href="<?php echo "maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
                class="card-link">Download</a>
             <hr>

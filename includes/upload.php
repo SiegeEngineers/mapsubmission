@@ -3,7 +3,7 @@
 
     <h2>
         <small class="text-muted">Stage</small>
-        <?php echo $stage;?>
+        <?php echo $stage; ?>
     </h2>
 
     <h5>
@@ -70,25 +70,6 @@ if ($error != '') {
                   aria-describedby="descriptionHelp"><?php if (isset($_POST['description'])) {
                 echo htmlspecialchars($_POST['description']);
             } ?></textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="selectGameVersion">Game Version
-            <small id="gameVersionHelp" class="form-text">This map is should be tested and judged with the following version of
-                the game
-            </small>
-        </label>
-        <select class="form-control" id="selectGameVersion" name="gameVersion">
-            <?php
-            foreach (['Plain AoC', 'HD', 'AoC+UP', 'WK'] as $version) {
-                $selected = '';
-                if (isset($_POST['gameVersion']) && $_POST['gameVersion'] === $version) {
-                    $selected = ' selected';
-                }
-                echo "<option$selected>$version</option>";
-            }
-            ?>
-        </select>
     </div>
 
     <div class="form-group">

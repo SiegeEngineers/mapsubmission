@@ -26,7 +26,6 @@ if ($now > $end) {
             $mapName = $_POST['mapName'];
             $description = $_POST['description'];
             $instructions = $_POST['instructions'];
-            $gameVersion = $_POST['gameVersion'];
             $filename = $_FILES['rms']['name'];
             $directory = $participants[$authorName]['maps'][0]['hash'];
             $submissionCode = substr(hash('sha256', $directory), 0, 6);
@@ -40,13 +39,11 @@ function upload(&$participants)
         isset($_POST['mapName']) &&
         isset($_POST['description']) &&
         isset($_POST['instructions']) &&
-        isset($_POST['gameVersion']) &&
         isset($_FILES['rms'])
     ) {
         if ($_POST['authorName'] === '' ||
             $_POST['mapName'] === '' ||
             $_POST['description'] === '' ||
-            $_POST['gameVersion'] === '' ||
             $_FILES['rms']['name'] === ''
         ) {
             return 'Please fill in at least your name, the rms file, the map name, a description, and the game version.';
@@ -62,7 +59,6 @@ function upload(&$participants)
                 "mapName" => $_POST['mapName'],
                 "description" => $_POST['description'],
                 "instructions" => $_POST['instructions'],
-                "gameVersion" => $_POST['gameVersion'],
                 "filename" => $_FILES['rms']['name'],
                 "hash" => $hash
             ];

@@ -194,8 +194,6 @@ function rating($hashvalue, $categories, $judging, $username)
                                         echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>";
                                     }
                                     ?>
-                                    <span class="text-muted"><?php echo htmlspecialchars($map['gameVersion']); ?>
-                                        –</span>
                                     <a href="<?php echo "../maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
                                        class="card-link">Download</a>
 

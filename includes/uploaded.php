@@ -34,12 +34,6 @@
 </div>
 
 <div class="form-group">
-    <label for="inputGameVersion">Game version</label>
-    <input type="text" class="form-control" id="inputGameVersion" name="gameVersion" aria-describedby="gameVersionHelp"
-           value="<?php echo htmlspecialchars($gameVersion); ?>" disabled>
-</div>
-
-<div class="form-group">
     <label for="inputInstructions">Instructions</label>
     <textarea class="form-control" id="inputInstructions" name="instructions" rows="3"
               aria-describedby="instructionsHelp"
