@@ -31,7 +31,7 @@ if ($error != '') {
 <form method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="inputAuthorName">Who are you?
-            <small id="authorNameHelp" class="form-text">Enter your name. Preferrably your AoEZone username.</small>
+            <small id="authorNameHelp" class="form-text">Enter your name. Preferably your AoEZone username.</small>
         </label>
         <input type="text" class="form-control" id="inputAuthorName" name="authorName"
                aria-describedby="authorNameHelp" placeholder=""
