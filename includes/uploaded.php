@@ -44,3 +44,10 @@
     <input type="text" class="form-control" id="inputRms" name="rms" aria-describedby="rmsHelp"
            value="<?php echo htmlspecialchars($filename); ?>" disabled>
 </div>
+
+<?php if($imageFileName != null){ ?>
+<div class="form-group">
+    <label for="fileInputImage">Screenshot</label>
+    <img style="max-width:100%;" src="<?php echo "maps/{$directory}/" . htmlspecialchars($imageFileName); ?>"/>
+</div>
+<?php } ?>

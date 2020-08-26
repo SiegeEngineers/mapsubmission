@@ -49,6 +49,15 @@ if ($error != '') {
     </div>
 
     <div class="form-group">
+        <label for="fileInputImage">Screenshot
+            <small id="imageHelp" class="form-text">Select your <code>.png</code> or <code>.jpg</code> file for upload
+            </small>
+        </label>
+        <input type="file" class="form-control-file" id="fileInputImage" aria-describedby="imageHelp"
+               name="image">
+    </div>
+
+    <div class="form-group">
         <label for="inputMapName">Map name
             <small id="mapNameHelp" class="form-text">Tell us the name of your map.</small>
         </label>

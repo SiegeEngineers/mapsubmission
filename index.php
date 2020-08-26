@@ -29,6 +29,7 @@ if ($now > $end) {
             $filename = $_FILES['rms']['name'];
             $directory = $participants[$authorName]['maps'][0]['hash'];
             $submissionCode = substr(hash('sha256', $directory), 0, 6);
+            $imageFileName = $participants[$authorName]['maps'][0]['image'];
         }
     }
 }
@@ -39,7 +40,8 @@ function upload(&$participants)
         isset($_POST['mapName']) &&
         isset($_POST['description']) &&
         isset($_POST['instructions']) &&
-        isset($_FILES['rms'])
+        isset($_FILES['rms']) &&
+        isset($_FILES['image'])
     ) {
         if ($_POST['authorName'] === '' ||
             $_POST['mapName'] === '' ||
@@ -54,12 +56,22 @@ function upload(&$participants)
             $hash = bin2hex($bytes);
 
             $authorName = $_POST['authorName'];
+            $imageName = null;
+            if ($_FILES['image']['name'] != '') {
+                $imageFileName = basename($_FILES["image"]["name"]);
+                $imageFileType = strtolower(pathinfo($imageFileName, PATHINFO_EXTENSION));
+                if ($imageFileType != "png" && $imageFileType != "jpg") {
+                    return "Please upload a .png or .jpg file";
+                }
+                $imageName = 'image.' . $imageFileType;
+            }
             $map = [
                 "authorName" => $authorName,
                 "mapName" => $_POST['mapName'],
                 "description" => $_POST['description'],
                 "instructions" => $_POST['instructions'],
                 "filename" => $_FILES['rms']['name'],
+                "image" => $imageName,
                 "hash" => $hash
             ];
             if (!isset($participants[$authorName]['maps'])) {
@@ -74,6 +86,7 @@ function upload(&$participants)
                 return "Please upload a .rms file";
             }
 
+
             $success = mkdir($target_dir);
             if ($success === false) {
                 return "Could not create folder";
@@ -81,6 +94,13 @@ function upload(&$participants)
 
             if (!move_uploaded_file($_FILES["rms"]["tmp_name"], $target_file)) {
                 return "There was an error uploading your file";
+            }
+
+            if ($_FILES['image']['name'] != '') {
+                $targetImageFile = $target_dir . $imageName;
+                if (!move_uploaded_file($_FILES["image"]["tmp_name"], $targetImageFile)) {
+                    return "There was an error uploading your image file";
+                }
             }
 
             $success = file_put_contents("data/participants.json", json_encode($participants, JSON_PRETTY_PRINT));
