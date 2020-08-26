@@ -2,7 +2,6 @@
     <h1>Random Map Contest</h1>
 
     <h2>
-        <small class="text-muted">Stage</small>
         <?php echo $stage;?>
     </h2>
 

@@ -2,7 +2,6 @@
     <h1>Random Map Contest</h1>
 
     <h2>
-        <small class="text-muted">Stage</small>
         <?php echo $stage; ?>
     </h2>
 
@@ -42,6 +41,6 @@
 
 <div class="form-group">
     <label for="fileInputRms">Random Map Script</label>
-    <input type="text" class="form-control" id="inputMapName" name="mapName" aria-describedby="mapNameHelp"
+    <input type="text" class="form-control" id="inputRms" name="rms" aria-describedby="rmsHelp"
            value="<?php echo htmlspecialchars($filename); ?>" disabled>
 </div>
