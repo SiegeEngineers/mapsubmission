@@ -126,7 +126,7 @@ function upload(&$participants)
         html,
         body {
             height: 100%;
-            background: url("assets/bg<?php echo rand(1,4); ?>.png") no-repeat fixed;
+            background: url("assets/bg<?php echo rand(1,3); ?>.png") no-repeat fixed;
             background-size: cover;
         }
 
