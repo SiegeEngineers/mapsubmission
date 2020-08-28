@@ -56,10 +56,6 @@ function sumScores($scores)
         </h2>
 
         <h5>
-            <small class="text-muted">Start</small>
-            <?php echo $start->format("l, j. F Y, H:i e") ?>
-        </h5>
-        <h5>
             <small class="text-muted">Submission deadline</small>
             <?php echo $end->format("l, j. F Y, H:i e") ?>
         </h5>
