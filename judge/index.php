@@ -189,8 +189,14 @@ function rating($hashvalue, $categories, $judging, $username)
                                         echo "<p class='card-text text-muted'>" . htmlspecialchars($map['instructions']) . "</p>";
                                     }
                                     ?>
-                                    <a href="<?php echo "../maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
-                                       class="card-link">Download</a>
+                                    <p><a href="<?php echo "../maps/{$map['hash']}/" . htmlspecialchars($map['filename']); ?>"
+                                       class="card-link">Download rms</a></p>
+
+                                    <?php if($map['image'] != null){ ?>
+                                        <p class="text-center"><img style="max-width:100%;" src="<?php echo "../maps/{$map['hash']}/" . htmlspecialchars($map['image']); ?>"/></p>
+                                    <?php } else { ?>
+                                        <p class="text-center">(no image)</p>
+                                    <?php } ?>
 
                                     <hr>
 
