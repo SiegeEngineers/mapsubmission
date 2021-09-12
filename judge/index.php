@@ -121,8 +121,9 @@ function rating($hashvalue, $categories, $judging, $username)
         html,
         body {
             height: 100%;
-            background: url("../assets/bg<?php echo rand(1,3); ?>.png") no-repeat fixed;
+            background: url("../assets/bg.png") no-repeat fixed;
             background-size: cover;
+            background-color: black;
         }
 
         .card {
